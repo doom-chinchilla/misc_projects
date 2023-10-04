@@ -37,5 +37,6 @@ def user_guess(num):
 print("Welcome to Guess the Number! I'll go first...")
 print("Try to think of a number between 1 and 10, and I'll try to guess the number you're thinking of!\n")
 computer_guess(10)
+
 print("Now it's your turn! Try to guess the number I'm thinking of...\n")
 user_guess(10)
