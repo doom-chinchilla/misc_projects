@@ -1,13 +1,14 @@
-import random 
-from words import words 
-import string 
+import random
+import string
+from words import words
 
-def get_valid_words(words): 
+def get_valid_words(words):
+
     # choose a random word from the word list
     word = random.choice(words)
 
     # handle edge cases - choose another word
-    while '-' in word or ' ' in word: 
+    while '-' in word or ' ' in word:
         word = random.choice(words)
 
     return word
@@ -32,7 +33,7 @@ def hangman():
         user_letter = input("Guess a letter: ").lower()
         if user_letter in alphabet - used_letters: 
             used_letters.add(user_letter)
-            
+
             if user_letter in word_letters: 
                 word_letters.remove(user_letter)
             else: 
