@@ -10,28 +10,29 @@ def get_valid_words(words):
     while '-' in word or ' ' in word: 
         word = random.choice(words)
 
-    return
+    return word
 
 def hangman(): 
     lives = 6 
 
     word = get_valid_words(words)
-    word_letters = set(word) 
-    alphabet = set(string.ascii_uppercase)
-    used_letters = set()
+    word_letters = set(word) # letters in the chosen word
+    alphabet = set(string.ascii_lowercase)
+    used_letters = set() # what the user has guessed
 
     # get the user's input 
     while len(word_letters) > 0 and lives != 0:
         # print the letters used so far
-        print("These letters have been guessed: "',' ''.join(used_letters))
+        print("You have",lives,"guesses left. These letters have been guessed: ", " ".join(used_letters))
 
         # what the current word is: 
         word_list = [letter if letter in used_letters else '-' for letter in word]
-        print("Current word: ', ' '".join(word_list))
+        print("Current word: ", " ".join(word_list))
 
-        user_letter = input("Guess a letter: ").upper()
+        user_letter = input("Guess a letter: ").lower()
         if user_letter in alphabet - used_letters: 
             used_letters.add(user_letter)
+            
             if user_letter in word_letters: 
                 word_letters.remove(user_letter)
             else: 
@@ -46,8 +47,8 @@ def hangman():
     # when lives = 0 or the word is completed 
     if lives == 0: 
         print("Game over! The word was "+word)
-    
-    print("Yay! You guessed the word, "+word+"!")
+    else: 
+        print("Yay! You guessed the word, "+word+"!")
 
 hangman()
 
