@@ -35,4 +35,4 @@ class HumanPlayer(Player):
             except ValueError:
                 print("Invalid move! Try again...")
 
-            return val
+        return val
