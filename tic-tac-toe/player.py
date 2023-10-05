@@ -36,3 +36,4 @@ class HumanPlayer(Player):
                 print("Invalid move! Try again...")
 
         return val
+
